@@ -1,0 +1,5 @@
+.nova/
+composer.json
+composer.lock
+secrets.php
+vendor/

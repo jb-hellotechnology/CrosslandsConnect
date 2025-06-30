@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^mentee/([0-9_-]+)$ mentee.php?mentee=$1
+
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
