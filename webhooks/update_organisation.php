@@ -13,6 +13,8 @@ if($_GET['p']==$password){
 	$json = file_get_contents('php://input');
 	$data = json_decode($json, true);
 	
+	mail('jack@hellotechnology.co.uk', 'Update Organisation', $data);
+	
 	$organisation = $data['entity'];
 	
 	if($organisation){
