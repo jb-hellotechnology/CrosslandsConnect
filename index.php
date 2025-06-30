@@ -118,7 +118,7 @@ include('layouts/header.php');
 				}
 
 				if($contact_organisation){
-					$crosslands->organisation_profile($organisation['ORGANISATION_ID'],$contact['CONTACT_ID']);
+					$crosslands->organisation_profile($contact_organisation['ORGANISATION_ID'],$contact['CONTACT_ID']);
 					//$crosslands->directory($contact['CONTACT_ID'], $organisation['ORGANISATION_ID']);
 				} 
 			}
