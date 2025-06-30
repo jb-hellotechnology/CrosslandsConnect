@@ -21,12 +21,10 @@ $session = $auth0->getCredentials();
 if($session){
 	// GET CONTACT
 	$contact = $crosslands->get_contact($session->user['email']);
-	print_r($contact);
+
 	if($contact['ORGANISATION_ID']){
 		$contact_organisation = $crosslands->get_organisation($contact['ORGANISATION_ID']);
 	}
-	
-	print_r($contact_organisation);
 
 	if(!$contact){
 		// CREATE INSIGHTLY CONTACT
