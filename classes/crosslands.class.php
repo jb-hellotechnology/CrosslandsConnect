@@ -77,8 +77,6 @@ class Crosslands{
 	}
 	curl_close($ch);
 	
-	print_r($result);
-	
 	$sql = "INSERT INTO contacts (CONTACT_ID, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
 	VALUES ('".$contact['CONTACT_ID']."', '".$contact['FIRST_NAME']."', '".$contact['LAST_NAME']."', '".$contact['EMAIL_ADDRESS']."')";
 	$params = array();
@@ -98,7 +96,7 @@ class Crosslands{
 	  }
 	}
 	
-  function organisation_profile($organisation_id) {
+  function organisation_profile($organisation_id, $contact_id) {
 	$query = "SELECT * FROM organisations WHERE ORGANISATION_ID='".$organisation_id."'";
 	$params = array();
 	$result = $this->database->query($query, $params);
@@ -137,6 +135,9 @@ class Crosslands{
 		  echo '</div></li>';
 		}
 	  echo '</ul>';
+	  if($data['PRIMARY_CONTACT']==$contact_id){
+		  echo '<p><strong>You are the primary contact for your church.</strong></p>';
+	  }
 	}
   }
   
