@@ -38,13 +38,13 @@ include('layouts/header.php');
 				if($mentees->num_rows > 0){
 					echo '<h2>My Mentees</h2>';
 					echo '<ul class="contacts">';
-					while($contact = mysqli_fetch_assoc($mentees)) {
-						$data = $crosslands->get_contact($contact['LINK_OBJECT_ID']);
+					while($pContact = mysqli_fetch_assoc($mentees)) {
+						$data = $crosslands->get_contact($pContact['LINK_OBJECT_ID']);
 						echo '<li>';
 								if(file_exists('./uploads/'.$data['CONTACT_ID'].'.jpg')){
 									echo '<img src="./uploads/'.$data['CONTACT_ID'].'.jpg?v='.rand().'" alt="Profile" />';
 								}
-								echo '<h4><a href="/mentee/'.$contact['LINK_OBJECT_ID'].'">'.$data['FIRST_NAME'].' '.$data['LAST_NAME'].'</a></h4>';
+								echo '<h4><a href="/mentee/'.$pContact['LINK_OBJECT_ID'].'">'.$data['FIRST_NAME'].' '.$data['LAST_NAME'].'</a></h4>';
 								if($data['bio']){ echo '<p>'.$data['bio'].'</p>';}
 								
 								echo '<ul class="contact-details">';
@@ -67,13 +67,13 @@ include('layouts/header.php');
 				if($tutees->num_rows > 0){
 					echo '<h2>My Tutees</h2>';
 					echo '<ul class="contacts">';
-					while($contact = mysqli_fetch_assoc($tutees)) {
-						$data = $crosslands->get_contact($contact['LINK_OBJECT_ID']);
+					while($pContact = mysqli_fetch_assoc($tutees)) {
+						$data = $crosslands->get_contact($pContact['LINK_OBJECT_ID']);
 						echo '<li>';
 								if(file_exists('./uploads/'.$data['CONTACT_ID'].'.jpg')){
 									echo '<img src="./uploads/'.$data['CONTACT_ID'].'.jpg?v='.rand().'" alt="Profile" />';
 								}
-								echo '<h4><a href="/mentee/'.$contact['LINK_OBJECT_ID'].'">'.$data['FIRST_NAME'].' '.$data['LAST_NAME'].'</a></h4>';
+								echo '<h4><a href="/mentee/'.$pContact['LINK_OBJECT_ID'].'">'.$data['FIRST_NAME'].' '.$data['LAST_NAME'].'</a></h4>';
 								if($data['bio']){ echo '<p>'.$data['bio'].'</p>';}
 								
 								echo '<ul class="contact-details">';
@@ -95,8 +95,8 @@ include('layouts/header.php');
 				if($mentors->num_rows > 0){
 					echo '<h2>My Mentor</h2>';
 					echo '<ul class="contacts">';
-					while($contact = mysqli_fetch_assoc($mentors)) {
-						$data = $crosslands->get_contact($contact['LINK_OBJECT_ID']);
+					while($pContact = mysqli_fetch_assoc($mentors)) {
+						$data = $crosslands->get_contact($pContact['LINK_OBJECT_ID']);
 						echo '<li>';
 								if(file_exists('./uploads/'.$data['CONTACT_ID'].'.jpg')){
 									echo '<img src="./uploads/'.$data['CONTACT_ID'].'.jpg?v='.rand().'" alt="Profile" />';
@@ -118,7 +118,7 @@ include('layouts/header.php');
 				}
 
 				if($contact_organisation){
-					$crosslands->organisation_profile($contact_organisation['ORGANISATION_ID'],$contact['CONTACT_ID']);
+					$crosslands->organisation_profile($contact_organisation['ORGANISATION_ID'], $contact['CONTACT_ID']);
 					//$crosslands->directory($contact['CONTACT_ID'], $organisation['ORGANISATION_ID']);
 				} 
 			}
