@@ -135,6 +135,7 @@ class Crosslands{
 		  echo '</div></li>';
 		}
 	  echo '</ul>';
+	  print_r($data);
 	  if($data['PRIMARY_CONTACT']==$contact_id){
 		  echo '<p><strong>You are the primary contact for your church.</strong></p>';
 	  }
