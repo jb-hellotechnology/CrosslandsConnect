@@ -26,7 +26,7 @@ if($_GET['p']==$password){
 			$sql = "UPDATE organisations SET ORGANISATION_NAME='".addslashes($organisation['ORGANISATION_NAME'])."', PHONE='".$organisation['PHONE']."', WEBSITE='".$organisation['WEBSITE']."', ADDRESS_BILLING_STREET='".addslashes($organisation['ADDRESS_BILLING_STREET'])."', ADDRESS_BILLING_CITY='".addslashes($organisation['ADDRESS_BILLING_CITY'])."', ADDRESS_BILLING_STATE='".addslashes($organisation['ADDRESS_BILLING_STATE'])."', ADDRESS_BILLING_COUNTRY='".addslashes($organisation['ADDRESS_BILLING_COUNTRY'])."', ADDRESS_BILLING_POSTCODE='".addslashes($organisation['ADDRESS_BILLING_POSTCODE'])."'  WHERE ORGANISATION_ID=".$organisation['ORGANISATION_ID'];
 			$params = array();
 			
-			mail('jack@hellotechnology.co.uk', 'Organisation Update Again', implode($organisation));
+			mail('jack@hellotechnology.co.uk', 'Organisation', $data);
 			
 			if ($database->query($sql, $params) === TRUE) {
 				echo "Record updated successfully<br />";
